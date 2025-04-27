@@ -1,0 +1,17 @@
+Requirement Details:
+
+1. Parking lot management system
+2. i/p - commandline / hardcode
+3. Data will not persist
+
+
+1. There can be multiple parking lots
+2. there can be multiple floors in a parking lot
+3. there can be multiple parking slots in a floor
+4. there will be entry and exit gates
+5. On entry date, operator will generate a ticket based on vehicle type.
+6. ticket will have a entry time
+7. On exit gate, operator will generate a bill based on ticket
+8. Payment can be done in multiple ways . we need to store transaction id for that
+9. Each lot, floor will have list of allowed vehicle types and capacity
+10. We can have multiple ways of allocating a slot
