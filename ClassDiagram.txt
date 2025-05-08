@@ -1,0 +1,140 @@
+ParkingLot
+{
+id : int
+name : String
+parkingFloors : List<ParkingFloor>
+status : ParkingLotStatus
+entryGates : List<Gate>
+exitGates : List<Gate>
+allowedVehicle HashMap<VehicleType,Count>
+
+slotAllocationStrategy : SlotAllocationStrategy
+FeeCalculationStrategy : FeeCalculationStrategy
+
+}
+
+ParkingFloor
+{
+id : int
+floorNumber : int
+ParkingLotId : int
+parkingSlots : List<ParkingSlot>
+status : ParkingFloorStatus
+allowedVehicle HashMap<VehicleType,Count>
+}
+
+ParkingSlot
+{
+id : int
+SlotNumber : int
+SlotType : SlotType
+ParkingfloorId : int
+status : ParkingSlotStatus
+}
+
+SlotType
+{
+TWO_WHEELER,
+SMALL_FOUR_WHEELER,
+BIG_FOUR_WHEELER,
+EIGHT_WHEELER,
+}
+
+Gate
+{
+Id : int
+GateNumber : int
+gateType : GateType
+Operator : Operator
+status : GateStatus
+}
+
+GateType
+{
+ENTRY,
+EXIT
+}
+
+Operator
+{
+id : int
+name : String
+empCode : int
+gate : Gate
+
+}
+
+Ticket
+{
+id : int
+number : int
+EntryTime : datetime
+vehicle : Vehicle
+gate : Gate
+parkingFloor : ParkingFloor
+Operator: Operator
+}
+
+Vehicle
+{
+id : int
+registrationNumber : long
+OwnerMobileNumber : int
+vehicleType : VehicleType
+
+}
+
+VehicleType
+{
+TWO_WHEELER,
+SMALL_FOUR_WHEELER,
+BIG_FOUR_WHEELER,
+EIGHT_WHEELER,
+}
+
+Bill
+{
+Id : int
+number : long
+Ticket : Ticket
+exitTime : datetime
+amount : int
+operator : Operator
+Gate : gate
+billStatus : BillStatus
+payments : List<Payment>
+
+}
+
+Payment
+{
+id: int
+transactionId : long
+paymentStatus : PaymentStatus
+paymentModes : List<PaymentMode>
+}
+
+PaymentMode
+{
+CASH, UPI , CARD
+}
+
+PaymentStatus
+{
+SUCCESS,FAILED
+}
+
+ParkingLotStatus
+{
+OPERATIONAL, UNOPERATIONAL, FILLED
+}
+
+ParkingFloorStatus
+{
+OPERATIONAL, UNOPERATIONAL, FILLED
+}
+
+ParkingSlotStatus
+{
+FILLED , FREE
+}
