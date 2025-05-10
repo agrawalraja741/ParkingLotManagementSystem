@@ -89,13 +89,13 @@ VehicleType
 TWO_WHEELER,
 SMALL_FOUR_WHEELER,
 BIG_FOUR_WHEELER,
-EIGHT_WHEELER,
+EIGHT_WHEELER
 }
 
 Bill
 {
 Id : int
-number : long
+String : long
 Ticket : Ticket
 exitTime : datetime
 amount : int
@@ -126,12 +126,12 @@ SUCCESS,FAILED
 
 ParkingLotStatus
 {
-OPERATIONAL, UNOPERATIONAL, FILLED
+OPERATIONAL, UN_OPERATIONAL, FILLED
 }
 
 ParkingFloorStatus
 {
-OPERATIONAL, UNOPERATIONAL, FILLED
+OPERATIONAL, UN_OPERATIONAL, FILLED
 }
 
 ParkingSlotStatus
