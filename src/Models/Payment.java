@@ -9,6 +9,13 @@ public class Payment {
     private PaymentStatus paymentStatus;
     private List<PaymentMode> paymentModes;
 
+    public Payment(int id, String transactionId, PaymentStatus paymentStatus, List<PaymentMode> paymentModes) {
+        this.id = id;
+        this.transactionId = transactionId;
+        this.paymentStatus = paymentStatus;
+        this.paymentModes = paymentModes;
+    }
+
     public int getId() {
         return id;
     }

@@ -19,6 +19,18 @@ public class ParkingLot {
     private SlotAllocationStrategy slotAllocationStrategy;
     private FeeCalculationStrategy  feeCalculationStrategy;
 
+    public ParkingLot(int id, String name, List<ParkingFloor> parkingFloors, ParkingLotStatus parkingLotStatus, List<Gate> entryGates, List<Gate> exitGates, HashMap<VehicleType, Integer> allowedVehicles, SlotAllocationStrategy slotAllocationStrategy, FeeCalculationStrategy feeCalculationStrategy) {
+        this.id = id;
+        this.name = name;
+        this.parkingFloors = parkingFloors;
+        this.parkingLotStatus = parkingLotStatus;
+        this.entryGates = entryGates;
+        this.exitGates = exitGates;
+        this.allowedVehicles = allowedVehicles;
+        this.slotAllocationStrategy = slotAllocationStrategy;
+        this.feeCalculationStrategy = feeCalculationStrategy;
+    }
+
     public int getId() {
         return id;
     }

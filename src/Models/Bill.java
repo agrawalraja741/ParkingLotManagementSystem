@@ -15,6 +15,18 @@ public class Bill {
     private BillStatus billStatus;
     private List<Payment> paymentList;
 
+    public Bill(int id, String billNumber, Ticket ticket, Time time, int amount, Operator operator, Gate gate, BillStatus billStatus, List<Payment> paymentList) {
+        this.id = id;
+        this.billNumber = billNumber;
+        this.ticket = ticket;
+        this.time = time;
+        this.amount = amount;
+        this.operator = operator;
+        this.gate = gate;
+        this.billStatus = billStatus;
+        this.paymentList = paymentList;
+    }
+
     public int getId() {
         return id;
     }

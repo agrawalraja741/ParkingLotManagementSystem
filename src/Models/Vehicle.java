@@ -7,6 +7,13 @@ public class Vehicle {
     private String OwnerMobileNumber;
     private VehicleType vehicleType;
 
+    public Vehicle(int id, String registrationNumber, String ownerMobileNumber, VehicleType vehicleType) {
+        this.id = id;
+        this.registrationNumber = registrationNumber;
+        OwnerMobileNumber = ownerMobileNumber;
+        this.vehicleType = vehicleType;
+    }
+
     public int getId() {
         return id;
     }

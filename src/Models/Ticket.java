@@ -12,6 +12,16 @@ public class Ticket {
     private Operator operator;
     private ParkingFloor parkingFloor;
 
+    public Ticket(int id, int ticketNumber, Date entryDate, Vehicle vehicle, Gate gate, Operator operator, ParkingFloor parkingFloor) {
+        this.id = id;
+        this.ticketNumber = ticketNumber;
+        this.entryDate = entryDate;
+        this.vehicle = vehicle;
+        this.gate = gate;
+        this.operator = operator;
+        this.parkingFloor = parkingFloor;
+    }
+
     public int getId() {
         return id;
     }

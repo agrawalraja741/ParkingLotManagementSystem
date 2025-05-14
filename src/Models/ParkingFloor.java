@@ -13,6 +13,15 @@ public class ParkingFloor {
 
     private HashMap<VehicleType , Integer> allowedVehicles;
 
+    public ParkingFloor(int id, int floorNo, int parkingLotId, ParkingFloorStatus parkingFloorStatus, List<ParkingSlot> parkingSlots, HashMap<VehicleType, Integer> allowedVehicles) {
+        this.id = id;
+        this.floorNo = floorNo;
+        this.parkingLotId = parkingLotId;
+        this.parkingFloorStatus = parkingFloorStatus;
+        this.parkingSlots = parkingSlots;
+        this.allowedVehicles = allowedVehicles;
+    }
+
     public int getId() {
         return id;
     }

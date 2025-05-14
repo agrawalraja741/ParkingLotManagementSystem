@@ -8,6 +8,14 @@ public class ParkingSlot {
     private ParkingSlotStatus parkingSlotStatus;
     private SlotType slotType;
 
+    public ParkingSlot(int id, int slotNumber, int parkingFloorId, ParkingSlotStatus parkingSlotStatus, SlotType slotType) {
+        this.id = id;
+        this.slotNumber = slotNumber;
+        this.parkingFloorId = parkingFloorId;
+        this.parkingSlotStatus = parkingSlotStatus;
+        this.slotType = slotType;
+    }
+
     public int getId() {
         return id;
     }

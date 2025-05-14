@@ -5,7 +5,14 @@ public class Operator {
     private int id;
     private int operatorId;
     private String operatorName;
-    private Gate gate;
+
+
+    public Operator(int id, int operatorId, String operatorName) {
+        this.id = id;
+        this.operatorId = operatorId;
+        this.operatorName = operatorName;
+
+    }
 
     public int getId() {
         return id;
@@ -29,13 +36,5 @@ public class Operator {
 
     public void setOperatorName(String operatorName) {
         this.operatorName = operatorName;
-    }
-
-    public Gate getGate() {
-        return gate;
-    }
-
-    public void setGate(Gate gate) {
-        this.gate = gate;
     }
 }
