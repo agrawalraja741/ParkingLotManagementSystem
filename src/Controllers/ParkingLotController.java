@@ -6,6 +6,7 @@ import Strategy.SlotAllocationStrategy;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 public class ParkingLotController {
@@ -34,5 +35,39 @@ public class ParkingLotController {
         return ticket;
     }
 
+    public Bill makeExit(Vehicle vehicle , Ticket ticket, ParkingLot parkingLot) {
+        HashMap<VehicleType, Integer> updatedAllowedVehicle = parkingLot.getAllowedVehicles();
+        updatedAllowedVehicle.put(vehicle.getVehicleType(), updatedAllowedVehicle.get(vehicle.getVehicleType()) + 1);
+        parkingLot.setAllowedVehicles(updatedAllowedVehicle);
 
+        ParkingFloor parkingFloor = null;
+
+        for (ParkingFloor parkingFloor1 : parkingLot.getParkingFloors()) {
+
+            if (parkingFloor1.getId() == ticket.getParkingSlot().getParkingFloorId()) {
+                parkingFloor = parkingFloor1;
+                break;
+            }
+
+        }
+
+
+        HashMap<VehicleType, Integer> updatedFloorAllowedVehicle = parkingFloor.getAllowedVehicles();
+        updatedFloorAllowedVehicle.put(vehicle.getVehicleType(), updatedFloorAllowedVehicle.get(vehicle.getVehicleType()) + 1);
+        parkingFloor.setAllowedVehicles(updatedFloorAllowedVehicle);
+
+        //free mark to slot
+
+        ParkingSlot parkingSlot = ticket.getParkingSlot();
+        parkingSlot.setParkingSlotStatus(ParkingSlotStatus.FREE);
+
+        int amount = parkingLot.getFeeCalculationStrategy().calculateFee(vehicle, ticket, LocalDateTime.now());
+        Random random = new Random();
+
+        Bill bill = new Bill(1, new String(random.nextInt(34567) + ""), ticket,
+                LocalDateTime.now(), amount, parkingLot.getExitGates().getFirst().getOperator(),
+                parkingLot.getExitGates().getFirst(), BillStatus.PAID, null);
+
+        return bill;
+    }
 }
