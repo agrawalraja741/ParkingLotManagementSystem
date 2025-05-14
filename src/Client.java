@@ -1,49 +1,51 @@
 import Controllers.ParkingLotController;
-import Models.ParkingLot;
-import Models.ParkingSlot;
-import Models.Vehicle;
-import Models.VehicleType;
+import Models.*;
 
 public class Client {
     public static void main(String[] args) {
 
         ParkingLot parkingLot = DataGeneration.generateData();
 
-        Vehicle vehicle1 = new Vehicle(1, "UP1212X1212", "2323121212", VehicleType.BIG_FOUR_WHEELER);
+        Vehicle vehicle1 = new Vehicle(1, "UP1212X1212", "2323121212", VehicleType.SMALL_FOUR_WHEELER);
 
         ParkingLotController parkingLotController = new ParkingLotController();
-        ParkingSlot parkingSlot = parkingLotController.packVehicle(vehicle1, parkingLot);
+        Ticket ticket1 = parkingLotController.packVehicle(vehicle1, parkingLot);
 
-        if (parkingSlot != null)
+        if (ticket1 != null)
         {
-            System.out.println("Please go to " + parkingSlot.getParkingFloorId() + " floor " +parkingSlot.getSlotNumber() +" slot");
+            System.out.println("Please go to " + ticket1.getParkingSlot().getParkingFloorId() + " floor " +ticket1.getParkingSlot().getSlotNumber() +" slot. " + ticket1.getEntryDate() + " is the entry time having ticket number +" + Math.abs(ticket1.getTicketNumber()));
         }
         else
         {
             System.out.println("No parking lots found");
         }
 
-        Vehicle vehicle2 = new Vehicle(2, "UP4444X1000", "8876545446", VehicleType.BIG_FOUR_WHEELER);
-        ParkingSlot parkingSlot2 = parkingLotController.packVehicle(vehicle2, parkingLot);
-        if (parkingSlot2 != null)
+        Vehicle vehicle2 = new Vehicle(2, "UP1212X3322", "2324232212", VehicleType.EIGHT_WHEELER);
+
+        Ticket ticket2 = parkingLotController.packVehicle(vehicle2, parkingLot);
+
+        if (ticket2 != null)
         {
-            System.out.println("Please go to " + parkingSlot2.getParkingFloorId() +  " floor " +parkingSlot2.getSlotNumber() +" slot");
+            System.out.println("Please go to " + ticket2.getParkingSlot().getParkingFloorId() + " floor " +ticket2.getParkingSlot().getSlotNumber() +" slot. " + ticket2.getEntryDate() + " is the entry time having ticket number +" + Math.abs(ticket2.getTicketNumber()));
         }
         else
         {
             System.out.println("No parking lots found");
         }
 
-        Vehicle vehicle3 = new Vehicle(3, "UP443377V0", "43231212112", VehicleType.EIGHT_WHEELER);
-        ParkingSlot parkingSlot3 = parkingLotController.packVehicle(vehicle3, parkingLot);
-        if (parkingSlot3 != null)
+        Vehicle vehicle3 = new Vehicle(3, "UP6612X3322", "4523232323", VehicleType.SMALL_FOUR_WHEELER);
+
+        Ticket ticket3 = parkingLotController.packVehicle(vehicle3, parkingLot);
+
+        if (ticket3 != null)
         {
-            System.out.println("Please go to " + parkingSlot3.getParkingFloorId() +  " floor " +parkingSlot3.getSlotNumber() +" slot");
+            System.out.println("Please go to " + ticket3.getParkingSlot().getParkingFloorId() + " floor " +ticket3.getParkingSlot().getSlotNumber() +" slot. " + ticket3.getEntryDate() + " is the entry time having ticket number +" + Math.abs(ticket3.getTicketNumber()));
         }
         else
         {
             System.out.println("No parking lots found");
         }
+
 
     }
 }

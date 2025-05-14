@@ -1,25 +1,28 @@
 package Models;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Ticket {
 
     private int id;
     private int ticketNumber;
-    private Date entryDate;
+    private LocalDateTime entryDate;
     private Vehicle vehicle;
     private Gate gate;
     private Operator operator;
-    private ParkingFloor parkingFloor;
+    private ParkingSlot parkingSlot;
 
-    public Ticket(int id, int ticketNumber, Date entryDate, Vehicle vehicle, Gate gate, Operator operator, ParkingFloor parkingFloor) {
+
+    public Ticket(int id, int ticketNumber, LocalDateTime entryDate, Vehicle vehicle, Gate gate, Operator operator, ParkingSlot parkingSlot) {
         this.id = id;
         this.ticketNumber = ticketNumber;
         this.entryDate = entryDate;
         this.vehicle = vehicle;
         this.gate = gate;
         this.operator = operator;
-        this.parkingFloor = parkingFloor;
+        this.parkingSlot = parkingSlot;
     }
 
     public int getId() {
@@ -38,11 +41,11 @@ public class Ticket {
         this.ticketNumber = ticketNumber;
     }
 
-    public Date getEntryDate() {
+    public LocalDateTime getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
+    public void setEntryDate(LocalDateTime entryDate) {
         this.entryDate = entryDate;
     }
 
@@ -70,11 +73,11 @@ public class Ticket {
         this.operator = operator;
     }
 
-    public ParkingFloor getParkingFloor() {
-        return parkingFloor;
+    public ParkingSlot getParkingSlot() {
+        return parkingSlot;
     }
 
-    public void setParkingFloor(ParkingFloor parkingFloor) {
-        this.parkingFloor = parkingFloor;
+    public void setParkingSlot(ParkingSlot parkingSlot) {
+        this.parkingSlot = parkingSlot;
     }
 }

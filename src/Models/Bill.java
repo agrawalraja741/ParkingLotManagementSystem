@@ -1,6 +1,8 @@
 package Models;
 
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Bill {
@@ -8,18 +10,18 @@ public class Bill {
     private int id;
     private String billNumber;
     private Ticket ticket;
-    private Time time;
+    private LocalDateTime exitTime  ;
     private int amount;
     private Operator operator;
     private Gate gate;
     private BillStatus billStatus;
     private List<Payment> paymentList;
 
-    public Bill(int id, String billNumber, Ticket ticket, Time time, int amount, Operator operator, Gate gate, BillStatus billStatus, List<Payment> paymentList) {
+    public Bill(int id, String billNumber, Ticket ticket, LocalDateTime exitTime, int amount, Operator operator, Gate gate, BillStatus billStatus, List<Payment> paymentList) {
         this.id = id;
         this.billNumber = billNumber;
         this.ticket = ticket;
-        this.time = time;
+        this.exitTime = exitTime;
         this.amount = amount;
         this.operator = operator;
         this.gate = gate;
@@ -51,12 +53,12 @@ public class Bill {
         this.ticket = ticket;
     }
 
-    public Time getTime() {
-        return time;
+    public LocalDateTime getTime() {
+        return exitTime;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
+    public void setTime(LocalDateTime exitTime) {
+        this.exitTime = exitTime;
     }
 
     public int getAmount() {
