@@ -1,6 +1,7 @@
 import Models.*;
 import Strategy.DurationBasedFeeCalculationStrategy;
 import Strategy.RandomSlotAllocationStrategy;
+import Strategy.SequenceSlotAllocationStrategy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class DataGeneration {
 
-    public static void generateData()
+    public static ParkingLot generateData()
     {
         ParkingSlot parkingSlot1 = new ParkingSlot(1,1,1, ParkingSlotStatus.FREE, SlotType.BIG_FOUR_WHEELER);
         ParkingSlot parkingSlot2 = new ParkingSlot(2,2,1, ParkingSlotStatus.FREE, SlotType.BIG_FOUR_WHEELER);
@@ -77,7 +78,8 @@ public class DataGeneration {
         exitGates.add(exit1);
         exitGates.add(exit2);
 
-        ParkingLot parkinglot = new ParkingLot(1,"MyParkingLot" ,parkingFloors , ParkingLotStatus.OPERATIONAL , entryGates , exitGates , allowedVehiclesParkingLot , new RandomSlotAllocationStrategy(), new DurationBasedFeeCalculationStrategy());
+        ParkingLot parkinglot = new ParkingLot(1,"MyParkingLot" ,parkingFloors , ParkingLotStatus.OPERATIONAL , entryGates , exitGates , allowedVehiclesParkingLot , new SequenceSlotAllocationStrategy(), new DurationBasedFeeCalculationStrategy());
+        return parkinglot;
     }
 }
 
